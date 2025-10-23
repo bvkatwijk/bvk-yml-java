@@ -56,10 +56,7 @@ function renderArray(arr, indent) {
   
 
 export function copyInput() {
-  navigator.clipboard.writeText(
-    document.getElementById(inputId)
-      .textContent
-    );
+  navigator.clipboard.writeText(document.getElementById(inputId).textContent);
 }
 
 export function copyOutput() {
