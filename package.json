@@ -1,0 +1,21 @@
+{
+  "name": "bvk-yml-java",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.1.11",
+    "chai": "^6.2.0",
+    "jsdom": "27.0.0",
+    "jsdom-global": "3.0.2",
+    "mocha": "^11.7.2"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
