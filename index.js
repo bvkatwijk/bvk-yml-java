@@ -52,13 +52,17 @@ function traverseNode(node, indent) {
     return renderText(node, indent);
   } else if (typeof node === 'boolean' || typeof node === 'number') {
     return `${node}`;
+  } else if (node instanceof Object) {
+    const keys = Object.keys(node);
+    const renderedEntries = keys.map((key) => `\n${i(indent + 1)}"${key}", ${traverseNode(node[key], indent + 1)}`).join(",");
+    return `ImmutableMap.of(${renderedEntries}\n${i(indent + 1)})`;
   } else {
     return `unknown node type ${node}: ${typeof node}`;
   }
 }
 
 function renderArray(arr, indent) {
-  return `List.of(${arr.map(key => `\n${renderNode(key, indent + 1)}`)}\n${i(indent)})`;
+  return `List.of(${arr.map(key => `\n${i(indent + 1)}${traverseNode(key, indent + 1)}`)}\n${i(indent)})`;
 }
   
 
