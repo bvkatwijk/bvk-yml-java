@@ -63,6 +63,10 @@ export function copyOutput() {
   navigator.clipboard.writeText(document.getElementById(outputId).textContent);
 }
 
+function i(indent) {
+  return "\t".repeat(indent);
+}
+
 
 function getDefault() {
   return `---
