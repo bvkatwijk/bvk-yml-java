@@ -10,7 +10,7 @@ Hosted page at https://bvankatwijk.nl/bvk-yml-java/
 
 ## Local
 ```shell
-npm run
+npm start
 ```
 
 ## Test
