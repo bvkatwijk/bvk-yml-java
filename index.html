@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>YML <-> Java </title>
+</head>
+
+<body onload="setDefaultInput()">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <button class="btn" onClick="window.location.reload();">Reset</button>
+                <a class="navbar-brand" href="https://bvankatwijk.nl/">bvkatwijk.nl</a>
+                <a class="navbar-brand" href="https://github.com/bvkatwijk/bvk-yml-java">GitHub</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div id="warning-card" class="card-body warning-card"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 d-flex flex-column">
+                <div class="card card-dark h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title d-flex align-items-center">
+                            <span class="me-auto">YML Input</span>
+                            <button class="btn btn-primary" onclick="copyInput()">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </h5>
+                        <textarea class="form-control flex-grow-1 content-area input-area" id="id-input-area" rows="10"
+                            onblur="convert()"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 d-flex flex-column">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title d-flex align-items-center">
+                            <span class="me-auto">Java Output</span>
+                            <button class="btn btn-primary" onclick="copyOutput()">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </h5>
+                        <pre class="language-java pre-output-area w-100 flex-grow-1 overflow-auto"
+                            style="height: 100%; margin-bottom: 0;"><code readonly
+                           style="height: 100%;"
+                           class="language-java output-area w-100 flex-grow-1 overflow-auto"
+                           id="id-output-area"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    
+    <script type="module">
+        import { setDefaultInput, convert, copyInput, copyOutput } from "./index.js";
+        window.setDefaultInput = setDefaultInput;
+        window.convert = convert;
+        window.copyInput = copyInput
+        window.copyOutput = copyOutput;
+    </script>
+</body>
+
+</html>
