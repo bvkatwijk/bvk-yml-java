@@ -37,6 +37,21 @@ export function ymlToJava(yml) {
 }
 
 
+export function copyInput() {
+  navigator.clipboard.writeText(
+    document.getElementById(inputId)
+      .textContent
+    );
+}
+
+export function copyOutput() {
+  navigator.clipboard.writeText(
+    document.getElementById(outputId)
+      .textContent
+    );
+}
+
+
 function getDefault() {
   return `---
 # A sample yaml file
