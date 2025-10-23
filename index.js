@@ -140,11 +140,10 @@ function setWarning(error) {
     '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     ymlToJava: ymlToJava,
-    renderAttr,
     renderChild,
-    renderText
+    renderText,
   };
 }
