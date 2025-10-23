@@ -8,7 +8,11 @@ require('jsdom-global')();
 describe('html-to-java', () => {
   describe('#htmlToJava', () => {
     it('should render empty as return empty map', () => {
-        assert.equal(index.ymlToJava(''), 'return ImmutableMap.of();');
+        assert.equal(index.ymlToJava(''), 'ImmutableMap.of();');
     });
+
+    it('should render company: spacelift as ImmutableMap.of("company", "spacelift");', () => {
+        assert.equal(index.ymlToJava('company: spacelift'), 'ImmutableMap.of(\n\t"company", "spacelift");');
+    })
   });
 });
