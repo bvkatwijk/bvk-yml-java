@@ -66,7 +66,7 @@ function renderText(node) {
 }
 
 function renderNode(node, indent) {
-  return `${i(indent)}${node}`;
+  return `${i(indent)}"${node}"`;
 }
 
 export function copyInput() {
