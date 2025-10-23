@@ -60,10 +60,7 @@ export function copyInput() {
 }
 
 export function copyOutput() {
-  navigator.clipboard.writeText(
-    document.getElementById(outputId)
-      .textContent
-    );
+  navigator.clipboard.writeText(document.getElementById(outputId).textContent);
 }
 
 
