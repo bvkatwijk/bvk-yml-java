@@ -1,5 +1,5 @@
 export default {
-    base: '/bvk-yml-java/',
+    base: './',
     preview: {
         open: true
     }
