@@ -37,6 +37,10 @@ export function ymlToJava(yml) {
   return mapOf(keys.map((key) => `\n${indentation}"${key}", ${traverseNode(doc[key], 1)}`).join(","));
 }
 
+function mapOf(obj) {
+  return `ImmutableMap.of(${obj});`;
+}
+
 
 export function copyInput() {
   navigator.clipboard.writeText(
