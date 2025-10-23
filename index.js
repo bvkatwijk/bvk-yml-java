@@ -33,6 +33,9 @@ export function setDefaultInput() {
 export function ymlToJava(yml) {
   const doc = parser.load(yml, "utf8");
   console.log(doc);
+  if (!doc) {
+    return mapOf('');
+  }
   const keys = Object.keys(doc);
   return mapOf(keys.map((key) => `\n${indentation}"${key}", ${traverseNode(doc[key], 1)}`).join(","));
 }
