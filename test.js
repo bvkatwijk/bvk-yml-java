@@ -12,7 +12,20 @@ describe('html-to-java', () => {
     });
 
     it('should render company: spacelift as ImmutableMap.of("company", "spacelift");', () => {
-        assert.equal(index.ymlToJava('company: spacelift'), 'ImmutableMap.of(\n\t"company", "spacelift");');
-    })
+        assert.equal(index.ymlToJava('company: spacelift'), 'ImmutableMap.of(\n\t"company", "spacelift"\n);');
+    });
+
+    it('should render list as List', () => {
+        const yml = `domain:
+ - devops
+ - devsecops`;
+        const expected = `ImmutableMap.of(
+\t"domain", List.of(
+\t\t"devops",
+\t\t"devsecops"
+\t)
+);`;
+        assert.equal(index.ymlToJava(yml), expected);
+    });
   });
 });
