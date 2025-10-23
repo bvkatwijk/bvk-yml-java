@@ -48,6 +48,8 @@ function traverseNode(node, indent) {
   console.log("current node: ", node);
   if (node instanceof Array) {
     return renderArray(node, indent);
+  } else if (typeof node === 'string') {
+    return renderText(node, indent);
   } else {
     return `unknown node type ${node}: ${typeof node}`;
   }
@@ -57,6 +59,11 @@ function renderArray(arr, indent) {
   return `List.of(${arr.map(key => `\n${i(indent+1)}"${key}"`)}\n${i(indent)})`;
 }
   
+
+function renderText(node) {
+  const text = node.trim();
+  return text ? `"${text}"` : "";
+}
 
 export function copyInput() {
   navigator.clipboard.writeText(document.getElementById(inputId).textContent);
