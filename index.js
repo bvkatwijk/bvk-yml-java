@@ -37,7 +37,7 @@ export function ymlToJava(yml) {
     return mapOf('');
   }
   const keys = Object.keys(doc);
-  return mapOf(keys.map((key) => `\n${indentation}"${key}", ${traverseNode(doc[key], 1)}`).join(","));
+  return mapOf(keys.map((key) => `\n${indentation}"${key}", ${traverseNode(doc[key], 1)}`).join(",") + '\n');
 }
 
 function mapOf(obj) {
