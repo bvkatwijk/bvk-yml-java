@@ -56,7 +56,7 @@ function traverseNode(node, indent) {
 }
 
 function renderArray(arr, indent) {
-  return `List.of(${arr.map(key => `\n${renderNode(key)}"`)}\n${i(indent)})`;
+  return `List.of(${arr.map(key => `\n${renderNode(key, indent + 1)}`)}\n${i(indent)})`;
 }
   
 
