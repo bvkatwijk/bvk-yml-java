@@ -41,6 +41,19 @@ function mapOf(obj) {
   return `ImmutableMap.of(${obj});`;
 }
 
+function traverseNode(node, indent) {
+  console.log("current node: ", node);
+  if (node instanceof Array) {
+    return renderArray(node, indent);
+  } else {
+    return `unknown node type ${node}: ${typeof node}`;
+  }
+}
+
+function renderArray(arr, indent) {
+  return `List.of(${arr.map(key => `\n${i(indent+1)}"${key}"`)}\n${i(indent)})`;
+}
+  
 
 export function copyInput() {
   navigator.clipboard.writeText(
