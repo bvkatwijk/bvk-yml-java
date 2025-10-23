@@ -1,4 +1,4 @@
-import parser from 'js-yaml'
+import parser from "js-yaml";
 
 const inputId = "id-input-area";
 const outputId = "id-output-area";
@@ -31,9 +31,10 @@ export function setDefaultInput() {
 }
 
 export function ymlToJava(yml) {
-    const doc = parser.load(yml, "utf8");
-    console.log(doc)
-    return "ImmutableMap.of();";
+  const doc = parser.load(yml, "utf8");
+  console.log(doc);
+  const keys = Object.keys(doc);
+  return mapOf(keys.map((key) => `\n${indentation}"${key}", ${traverseNode(doc[key], 1)}`).join(","));
 }
 
 
