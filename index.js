@@ -56,13 +56,17 @@ function traverseNode(node, indent) {
 }
 
 function renderArray(arr, indent) {
-  return `List.of(${arr.map(key => `\n${i(indent+1)}"${key}"`)}\n${i(indent)})`;
+  return `List.of(${arr.map(key => `\n${renderNode(key)}"`)}\n${i(indent)})`;
 }
   
 
 function renderText(node) {
   const text = node.trim();
   return text ? `"${text}"` : "";
+}
+
+function renderNode(node, indent) {
+  return `${i(indent)}${node}`;
 }
 
 export function copyInput() {
