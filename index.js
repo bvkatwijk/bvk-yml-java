@@ -55,7 +55,7 @@ function traverseNode(node, indent) {
   } else if (node instanceof Object) {
     const keys = Object.keys(node);
     const renderedEntries = keys.map((key) => `\n${i(indent + 1)}"${key}", ${traverseNode(node[key], indent + 1)}`).join(",");
-    return `ImmutableMap.of(${renderedEntries}\n${i(indent + 1)})`;
+    return `ImmutableMap.of(${renderedEntries}\n${i(indent)})`;
   } else {
     return `unknown node type ${node}: ${typeof node}`;
   }
