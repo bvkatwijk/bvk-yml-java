@@ -50,6 +50,8 @@ function traverseNode(node, indent) {
     return renderArray(node, indent);
   } else if (typeof node === 'string') {
     return renderText(node, indent);
+  } else if (typeof node === 'boolean' || typeof node === 'number') {
+    return `${node}`;
   } else {
     return `unknown node type ${node}: ${typeof node}`;
   }
